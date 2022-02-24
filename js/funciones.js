@@ -1,5 +1,11 @@
+function iniciar(){
+    window.open("login.html")
+}
 
-
+function jugar(){
+    localStorage.nombre = document.getElementById("nombre").value;
+    window.open("juego.html");
+}
 
 
 
