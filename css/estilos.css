@@ -21,9 +21,16 @@ body{
 }
 
 #lienzo{
-    background-image: url('/MiniProyecto1/media/fondo.png');
+    background-image: url('../media/fondo.png');
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0px 0px 5px 1px black;
 }
 
+.menu{
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

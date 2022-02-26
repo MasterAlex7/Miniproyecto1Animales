@@ -1,10 +1,10 @@
 function iniciar(){
-    window.open("login.html")
+    window.location.href = "login.html"
 }
 
 function jugar(){
     localStorage.nombre = document.getElementById("nombre").value;
-    window.open("juego.html");
+    window.location.href = "juego.html"
 }
 
 
@@ -16,17 +16,17 @@ window.onload=function(){
         if (ctx) {
             ctx.beginPath();
     
-            ctx.font = "35pt Times New Roman";
-            ctx.fillStyle = "black";
+            ctx.font = "35pt Comic Sans MS, Comic Sans, cursive";
+            ctx.fillStyle = "yellow";
             ctx.fillText("Bienvenido a Animal Choose", 100, 120);
 
-            ctx.font = "20pt Times New Roman";
-            ctx.fillStyle = "black";
-            ctx.fillText("Tendras que acomodar los animales", 190, 400);
+            ctx.font = "20pt Comic Sans MS, Comic Sans, cursive";
+            ctx.fillStyle = "pink";
+            ctx.fillText("Tendras que acomodar los animales", 160, 400);
 
-            ctx.font = "20pt Times New Roman";
-            ctx.fillStyle = "black";
-            ctx.fillText("en su Habitat para ganar", 240, 430);
+            ctx.font = "20pt Comic Sans MS, Comic Sans, cursive";
+            ctx.fillStyle = "pink";
+            ctx.fillText("en su Habitat para ganar", 220, 430);
 
             var imag=new Image();
             imag.src="media/logo.png";
