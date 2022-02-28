@@ -25,16 +25,18 @@
         crossorigin="anonymous"></script>
 
     <h1 class="text-center mt-4 mb-4" style="color:white">Juego</h1>
-    <section id="habitat-imagenes">
-        <canvas draggable="false" id="habitad1" width="200" height="200"></canvas>
-        <canvas draggable="false" id="habitad2" width="200" height="200"></canvas>
-        <canvas draggable="false" id="habitad3" width="200" height="200"></canvas>    
-    </section>
-    <section id="animales-imagenes">
-        <canvas draggable="true" id="animal1" width="200" height="200"></canvas>
-        <canvas draggable="true" id="animal2" width="200" height="200"></canvas>
-        <canvas draggable="true" id="animal3" width="200" height="200"></canvas>
-    </section>
+    <div class="board">
+        <section id="animales-imagenes">
+            <img draggable="true" id="animal1" width="200" height="200"></img>
+            <img draggable="true" id="animal2" width="200" height="200"></img>
+            <img draggable="true" id="animal3" width="200" height="200"></img>
+        </section>
+        <section id="habitat-imagenes">
+            <canvas draggable="false" id="habitad1" width="200" height="200" ></canvas>
+            <canvas draggable="false" id="habitad2" width="200" height="200"></canvas>
+            <canvas draggable="false" id="habitad3" width="200" height="200"></canvas>
+        </section> 
+    </div>
 
 
     </body>
