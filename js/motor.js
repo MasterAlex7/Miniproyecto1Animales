@@ -18,6 +18,7 @@ var habitad_info = new Array();
 var imagen_Habitad = null;
 var elemento=null;
 var x = null;
+var acerto = false;
 
 window.onload = function () {
     iniciarImagenes();
@@ -60,10 +61,12 @@ function iniciarImagenes() {
             }
             if(valor_habitad == valor_animal){
                 console.log("Animal correcto");
+                acerto = true;
             }else{
                 console.log(valor_animal);
                 console.log(valor_habitad);
                 console.log("Animal incorrecto");
+                acerto= false;
             }
             e.preventDefault();
         });
@@ -99,7 +102,11 @@ function arrastrado(e) {
 
 function finalizado(e) {
     var elemento = e.target;
-    elemento.style.visibility = 'hidden';
+    if(acerto == true){
+        elemento.style.visibility = 'hidden';
+    }else{
+        elemento.style.visibility = 'visible';
+    }
 }
 
 function eventoEnter(e){
