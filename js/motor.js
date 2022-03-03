@@ -12,9 +12,12 @@ var contextHab = new Array();
 var contextAni = new Array();
 var vectorHab = new Array();
 var vectorAni = new Array();
+var animales_nombre=new Array();
+var habitad_info = new Array();
 
 var imagen_Habitad = null;
-
+var elemento=null;
+var x = null;
 
 window.onload = function () {
     iniciarImagenes();
@@ -24,13 +27,47 @@ window.onload = function () {
 function iniciarImagenes() {
     num_random = num_random.sort((a, b) => 0.5 - Math.random());
     habRand = habRand.sort((a, b) => 0.5 - Math.random());
-    
+    var arreglo_hab = new Array();
     for (var i = 0; i < 3; i++) {
         x = i;
-        document.getElementById("animal"+(i+1)).src = '../media/Animales/'+animales[num_random[x]];
+        var animal_src=document.getElementById("animal"+(i+1));
+        animal_src.src = '../media/Animales/'+animales[num_random[x]];
+        animales_nombre[x]=new Object();
+        animales_nombre[x].id= "animal"+(i+1);
+        animales_nombre[x].valor= num_random[x];
+        animal_src.addEventListener('dragstart', e => {
+            console.log('Arraste de animal');
+        });
         vectorHab[x] = new Image();
-        var ambiente = document.getElementById("habitad" + (i + 1));
-        asignarHab(ambiente, x);
+        arreglo_hab[x] = document.getElementById("habitad" + (i + 1));
+        habitad_info[x] = new Object();
+        habitad_info[x].id = "habitad" + (i + 1);
+        arreglo_hab[x].addEventListener('dragover', e => {
+            e.preventDefault();
+        });
+        arreglo_hab[x].addEventListener('drop', e => {
+            var id_hab=e.target.id;
+            var animal_drop=e.dataTransfer.getData("text");
+            console.log(animal_drop);
+            for(var j=0;j<3;j++){
+                if(animales_nombre[j].id==animal_drop){
+                    console.log("Encontrado");
+                    var valor_animal = animales_nombre[j].valor;
+                }
+                if(habitad_info[j].id == id_hab){
+                    var valor_habitad = habitad_info[j].valor;
+                }
+            }
+            if(valor_habitad == valor_animal){
+                console.log("Animal correcto");
+            }else{
+                console.log(valor_animal);
+                console.log(valor_habitad);
+                console.log("Animal incorrecto");
+            }
+            e.preventDefault();
+        });
+        asignarHab(arreglo_hab[x], x);
     }
 }
 
@@ -41,6 +78,7 @@ function asignarHab(ambiente, x) {
         contextHab[x].drawImage(vectorHab[x], 0, 0, 200, 200)
     }, false);
     vectorHab[x].src = 'media/Habitat/' + habitat[num_random[habRand[x]]]; // Set source path
+    habitad_info[x].valor =num_random[habRand[x]];
 }
 
 
@@ -51,11 +89,6 @@ function eventosDragDrop() {
         animales_img[i].addEventListener('dragend', finalizado, false);
     }
     var habitat_img = document.querySelectorAll('#habitat-imagenes > canvas');
-    for (var j = 0; j < habitat_img.length; j++) {
-        habitat_img[j] = addEventListener('dragenter', eventoEnter, false);
-        habitat_img[j] = addEventListener('drop', soltado,false);
-        habitat_img[j] = addEventListener('dragover', eventoOver,false);
-    }
 }
 
 function arrastrado(e) {
@@ -82,7 +115,8 @@ function eventoOver(e){
 function soltado(e){
     e.preventDefault();
     var id=e.dataTransfer.getData('Text');
-    var elemento = document.getElementById(id);
+    alert(id);
+    elemento = document.getElementById(id);
     var posx= e.pageX; //- //habitat_img[0].offsetLeft; // coordenadas x para el soltado
     var posy = e.pageY; //- //habitat_img[0].offsetTop;
     contextHab[0].drawImage(elemento, posx, posy);
