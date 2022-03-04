@@ -66,3 +66,51 @@ body{
     border-radius: 10px;
 }
 
+#FF{
+    background-image: url("../media/Fond.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+ 
+ #DivMarco{
+     border: 10px solid gold ;
+     border-radius: 20px; 
+ }
+ 
+ #gratz{
+     top: 30%;
+     left: 30%;
+     position:absolute;
+     font-family: cursive;
+     font-size: 80px
+ }
+ 
+ #nom{
+     top: 40%;
+     left: 40%;
+     position:absolute;
+     font-family: cursive;
+     font-size: 100px
+ }
+ 
+ #Mensaje{
+     top: 60%;
+     left: 25%;
+     position:absolute;
+     font-family: cursive;
+     font-size: 50px;
+     text-align: center
+ }
+ 
+ #bot1{
+     top: 85%;
+     left: 40%;
+     position: absolute;
+ }
+
+ #bot2{
+    top: 85%;
+    left: 50%;
+    position: absolute;
+}
+

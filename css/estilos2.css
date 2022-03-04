@@ -1,0 +1,63 @@
+#FC{
+    background-image: url("../media/credits.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+#DivMarco{
+    border: 10px solid black ;
+    border-radius: 20px; 
+}
+
+#uni{
+    top: 10%;
+    left: 27%;
+    position:absolute;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+#carr{
+    top: 15%;
+    left: 32%;
+    position:absolute;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+#gys{
+    top: 20%;
+    left: 40%;
+    position:absolute;
+    font-family: cursive;
+    font-size: 30px;
+    text-align: center;
+}
+
+#inte{
+    top: 40%;
+    left: 35%;
+    position: absolute;
+    font-family: cursive;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+#bot1{
+    top: 85%;
+    left: 40%;
+    position: absolute;
+}
+
+#bot2{
+   top: 85%;
+   left: 50%;
+   position: absolute;
+}
+
+#bot3{
+    top: 75%;
+    left: 50%;
+    position: absolute;
+}
