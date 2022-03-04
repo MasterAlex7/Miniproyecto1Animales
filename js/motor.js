@@ -14,6 +14,7 @@ var vectorHab = new Array();
 var vectorAni = new Array();
 var animales_nombre=new Array();
 var habitad_info = new Array();
+var arreglo_hab = new Array();
 
 var imagen_Habitad = null;
 var elemento=null;
@@ -27,7 +28,7 @@ window.onload = function () {
 function iniciarImagenes() {
     num_random = num_random.sort((a, b) => 0.5 - Math.random());
     habRand = habRand.sort((a, b) => 0.5 - Math.random());
-    var arreglo_hab = new Array();
+
     for (var i = 0; i < 3; i++) {
         x = i;
         var animal_src=document.getElementById("animal"+(i+1));
@@ -42,10 +43,12 @@ function iniciarImagenes() {
         arreglo_hab[x] = document.getElementById("habitad" + (i + 1));
         habitad_info[x] = new Object();
         habitad_info[x].id = "habitad" + (i + 1);
+        habitad_info[x].posicion = x;
         arreglo_hab[x].addEventListener('dragover', e => {
             e.preventDefault();
         });
         arreglo_hab[x].addEventListener('drop', e => {
+            var found;
             var id_hab=e.target.id;
             var animal_drop=e.dataTransfer.getData("text");
             console.log(animal_drop);
@@ -53,6 +56,7 @@ function iniciarImagenes() {
                 if(animales_nombre[j].id==animal_drop){
                     console.log("Encontrado");
                     var valor_animal = animales_nombre[j].valor;
+                    found = j;
                 }
                 if(habitad_info[j].id == id_hab){
                     var valor_habitad = habitad_info[j].valor;
@@ -60,6 +64,12 @@ function iniciarImagenes() {
             }
             if(valor_habitad == valor_animal){
                 console.log("Animal correcto");
+                var elemento=document.getElementById(animal_drop);
+                var drop_hab= document.getElementById(id_hab);
+                var pin_hab=drop_hab.getContext("2d");
+                var posx= e.pageX - elemento.offsetLeft; // coordenadas x para el soltado
+                var posy = e.pageY - elemento.offsetTop;
+                pin_hab.drawImage(elemento,posx,posy);
             }else{
                 console.log(valor_animal);
                 console.log(valor_habitad);
