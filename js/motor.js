@@ -6,43 +6,46 @@ var habitat = ["oceano.png", "Bamboo.jpg", "casa.png",
 var animales = ["Delfin", "Panda", "Perro", "Gallina", "Cerdo", "Cabra", "Cocodrilo", "Leon", "Tucan"];
 
 var num_random = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // 0, 2 ,4, 6
-var habRand=[0,1,2];
+var habRand = [0, 1, 2];
 
 var contextHab = new Array();
 var contextAni = new Array();
 var vectorHab = new Array();
 var vectorAni = new Array();
-var animales_nombre=new Array();
+var animales_nombre = new Array();
 var habitad_info = new Array();
 var arreglo_hab = new Array();
 
 //Manejo de los puntos
-var puntos=0;
+var puntos = 0;
 
 
 var imagen_Habitad = null;
-var elemento=null;
+var elemento = null;
 var x = null;
 
 window.onload = function () {
-    if(localStorage.nivel=="3"){
-        puntos=localStorage.nivel;
+    if (localStorage.nivel == "3") {
+        puntos = localStorage.nivel;
+        var aux = localStorage.getItem('Animales');
+        num_random = JSON.parse(aux);
+    } else {
+        num_random = num_random.sort((a, b) => 0.5 - Math.random());
     }
     iniciarImagenes();
     eventosDragDrop();
 }
 
 function iniciarImagenes() {
-    num_random = num_random.sort((a, b) => 0.5 - Math.random());
     habRand = habRand.sort((a, b) => 0.5 - Math.random());
 
     for (var i = 0; i < 3; i++) {
         x = i;
-        var animal_src=document.getElementById("animal"+(i+1));
-        animal_src.src = '../media/Animales/'+animales[num_random[x]]+'.png';
-        animales_nombre[x]=new Object();
-        animales_nombre[x].id= "animal"+(i+1);
-        animales_nombre[x].valor= num_random[x];
+        var animal_src = document.getElementById("animal" + (i + 1));
+        animal_src.src = '../media/Animales/' + animales[num_random[x]] + '.png';
+        animales_nombre[x] = new Object();
+        animales_nombre[x].id = "animal" + (i + 1);
+        animales_nombre[x].valor = num_random[x];
         animal_src.addEventListener('dragstart', e => {
             console.log('Arraste de animal');
         });
@@ -56,32 +59,32 @@ function iniciarImagenes() {
         });
         arreglo_hab[x].addEventListener('drop', e => {
             var sonido = null;
-            var id_hab=e.target.id;
-            var animal_drop=e.dataTransfer.getData("text");
+            var id_hab = e.target.id;
+            var animal_drop = e.dataTransfer.getData("text");
             console.log(animal_drop);
-            for(var j=0;j<3;j++){
-                if(animales_nombre[j].id==animal_drop){
+            for (var j = 0; j < 3; j++) {
+                if (animales_nombre[j].id == animal_drop) {
                     console.log("Encontrado");
                     var valor_animal = animales_nombre[j].valor;
                     found = j;
                 }
-                if(habitad_info[j].id == id_hab){
+                if (habitad_info[j].id == id_hab) {
                     var valor_habitad = habitad_info[j].valor;
                 }
             }
-            if(valor_habitad == valor_animal){
+            if (valor_habitad == valor_animal) {
                 console.log("Animal correcto");
                 e.target.appendChild(document.getElementById(animal_drop));
-                sonido = 'media/Sonido/'+animales[valor_animal]+'.mp3';
+                sonido = 'media/Sonido/' + animales[valor_animal] + '.mp3';
                 console.log(animales[valor_animal]);
                 var music = new Audio(sonido);
                 music.play();
-                var txt=id_hab+'txt';
-                document.getElementById(txt).innerHTML=animales[valor_animal];
-                document.getElementById(txt).style.visibility= 'visible';
+                var txt = id_hab + 'txt';
+                document.getElementById(txt).innerHTML = animales[valor_animal];
+                document.getElementById(txt).style.visibility = 'visible';
                 puntos++;
                 evaluacionNivel(puntos);
-            }else{
+            } else {
                 console.log(valor_animal);
                 console.log(valor_habitad);
                 console.log("Animal incorrecto");
@@ -92,12 +95,13 @@ function iniciarImagenes() {
         });
         asignarHab(arreglo_hab[x], x);
     }
+    borrarRep();
 }
 
 function asignarHab(ambiente, x) {
     ambiente.style.backgroundImage = "url(../media/Habitat/" + habitat[num_random[habRand[x]]];
     //vectorImg[i] = new Image();
-    habitad_info[x].valor =num_random[habRand[x]];
+    habitad_info[x].valor = num_random[habRand[x]];
 }
 
 
@@ -122,13 +126,19 @@ function finalizado(e) {
 }
 
 
-function evaluacionNivel(puntos){
-    if(puntos==3){
+function evaluacionNivel(puntos) {
+    if (puntos == 3) {
         localStorage.nivel = puntos;
-        setTimeout(() => {  window.location.reload(); }, 3500);
-        
-    }else if(puntos==6){
-        setTimeout(() => {   window.location.href="final.html"; }, 3000);
-       
+        setTimeout(() => { window.location.reload(); }, 3500);
+
+    } else if (puntos == 6) {
+        setTimeout(() => { window.location.href = "final.html"; }, 3000);
+    }
+}
+
+function borrarRep(){
+    if (localStorage.nivel != "3") {
+        num_random.splice(0, 3)
+        localStorage.setItem('Animales', JSON.stringify(num_random));
     }
 }
