@@ -1,5 +1,47 @@
-#FC{
-    background-image: url("../media/credits.jpg"); 
+body{
+    background: rgb(90,145,16);
+    background: linear-gradient(96deg, rgba(90,145,16,1) 9%, rgba(10,71,10,1) 76%);
+}
+
+div{
+    color: white;
+    text-align: center;
+    position: absolute;
+    margin-top: 180px;
+    margin-left: 360px;
+    
+}
+
+img{
+    position: absolute;
+    width: 200px;
+}
+
+.uno{
+    margin-top: 420px;
+}
+
+.dos{
+    margin-top: 440px;
+    margin-left: 1100px;
+}
+
+.tres{
+    margin-left: 1150px;
+}
+
+.cuatro{
+    margin-left: 630px;
+    width: 150px;
+}
+
+.cinco{
+    margin-top: 250px;
+    margin-left: 250px;
+}
+
+
+/* #FC{
     background-repeat: no-repeat;
     background-size: cover;
  }
@@ -60,4 +102,4 @@
     top: 75%;
     left: 50%;
     position: absolute;
-}
+} */
