@@ -8,6 +8,9 @@ function recuperar(){
 
 window.onload = function(){
     recuperar();
+    localStorage.nivel=0;
+    var music = new Audio('media/Sonido/final.mp3');
+    music.play();
 }
 
 function credits(){
