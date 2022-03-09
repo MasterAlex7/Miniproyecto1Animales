@@ -46,9 +46,11 @@ body{
 
 .titulo{
     background-color: #18b60a;
-    margin-left: 8em;
-    margin-right: 8em;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin-right: 1em;
+    margin-left: 1em;
 }
 
 #animales-imagenes{
@@ -105,9 +107,6 @@ body{
 
 
 
-
-
-
 #habitad1txt,
 #habitad2txt,
 #habitad3txt{
@@ -126,6 +125,7 @@ body{
     border-radius: 10px;
 }
 
+
 #FF{
     background-image: url("../media/Fond.jpg"); 
     background-repeat: no-repeat;
@@ -135,42 +135,43 @@ body{
  #DivMarco{
      border: 10px solid gold ;
      border-radius: 20px; 
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
  }
  
  #gratz{
-     top: 30%;
-     left: 30%;
-     position:absolute;
+     margin-top: 1.9em;
      font-family: cursive;
-     font-size: 80px
+     font-size: 5em;
  }
  
  #nom{
-     top: 40%;
-     left: 40%;
-     position:absolute;
      font-family: cursive;
-     font-size: 100px
+     font-size: 6em;
  }
  
  #Mensaje{
-     top: 60%;
-     left: 25%;
-     position:absolute;
      font-family: cursive;
      font-size: 50px;
-     text-align: center
  }
  
+.botones{
+    margin: 1em 1em;
+}
+
+
+
  #bot1{
-     top: 85%;
-     left: 40%;
-     position: absolute;
+    color: white;
+    font-size: 1.2em;
+    margin-right: 2em;
  }
 
  #bot2{
-    top: 85%;
-    left: 50%;
-    position: absolute;
+    color: white;
+    font-size: 1.2em;
+    margin-right: 2em;
 }
 
