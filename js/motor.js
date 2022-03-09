@@ -1,6 +1,6 @@
-var habitat = ["oceano.png", "Bamboo.jpg", "casa.png",
-    "gallinero.jpg", "granja.png", "montaña.png",
-    "pantano.png", "sabana.jpg",
+var habitat = ["oceano.png", "Bamboo.jpg", "casa.jpg",
+    "gallinero.jpg", "granja.jpg", "montaña.png",
+    "pantano.jpg", "sabana.jpg",
     "Selva.jpg", ""]
 
 var animales = ["Delfin", "Panda", "Perro", "Gallina", "Cerdo", "Cabra", "Cocodrilo", "Leon", "Tucan"];
